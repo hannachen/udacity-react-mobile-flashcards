@@ -15,11 +15,6 @@ class NewDeck extends Component {
   changeTitle = (title) => {
     this.setState({title})
   }
-  toHome = () => {
-    this.props.navigation.dispatch(NavigationActions.back({
-      key: 'NewDeck'
-    }))
-  }
   submitDeck = () => {
     const key = uuid()
     const deck = this.state
@@ -27,7 +22,11 @@ class NewDeck extends Component {
 
     Keyboard.dismiss()
 
-    this.toHome()
+    this.props.navigation.navigate('DeckDetail', { entryId: key, title: deck.title })
+
+    this.setState({
+      title: ''
+    })
   }
 
   render() {
@@ -56,6 +55,7 @@ class NewDeck extends Component {
         <Button
           onPress={this.submitDeck}
           disabled={title.length === 0}
+          containerStyle={{borderWidth: 1}}
         >
           Create Deck
         </Button>

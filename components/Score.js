@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import Button from './Button'
 import { purple, white } from '../utils/colors'
 
-export default function({ correct, incorrect, restartQuiz, toHome }) {
+export default function({ correct, incorrect, restartQuiz, toDeck }) {
   return(
     <View style={styles.container}>
       <Text style={styles.title}>Your score</Text>
@@ -19,7 +19,7 @@ export default function({ correct, incorrect, restartQuiz, toHome }) {
           Restart Quiz
         </Button>
         <Button
-          onPress={toHome}
+          onPress={toDeck}
           containerStyle={{ borderWidth: 1, marginTop: 15 }}
         >
           Back to Deck

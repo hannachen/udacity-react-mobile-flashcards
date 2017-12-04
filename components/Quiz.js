@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
 import Button from './Button'
 import Score from './Score'
+import Question from './Question'
 import { green, red, gray, white } from '../utils/colors'
 
 class Quiz extends Component {
@@ -32,8 +33,9 @@ class Quiz extends Component {
       counter: this.state.counter + 1
     })
   }
-  toHome = () => {
-    this.props.navigation.navigate('Home')
+  toDeck = () => {
+    const { deck } = this.props
+    this.props.navigation.navigate('DeckDetail', { entryId: deck.key })
   }
   reset = () => {
     this.setState({
@@ -57,7 +59,7 @@ class Quiz extends Component {
           correct={correct}
           incorrect={incorrect}
           restartQuiz={this.reset}
-          toHome={this.toHome}
+          toDeck={this.toDeck}
         />
       )
     }
@@ -66,12 +68,11 @@ class Quiz extends Component {
       <View style={styles.container}>
         <Text style={styles.page}>{`${counter}/${deck.questions.length}`}</Text>
 
-        <View style={[styles.center, {flex: 2}]}>
-          {showAnswer
-            ? <Text style={styles.title}>{deck.questions[counter-1]['answer']}</Text>
-            : <Text style={styles.title}>{deck.questions[counter-1]['question']}</Text>
-          }
-        </View>
+        <Question
+          question={deck.questions[counter-1]['question']}
+          answer={deck.questions[counter-1]['answer']}
+          showAnswer={showAnswer}
+        />
 
         <TouchableOpacity onPress={this.toggle}>
           <Text>Show {showAnswer ? 'Question' : 'Answer'}</Text>
@@ -112,15 +113,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 10,
     color: gray,
-  },
-  title: {
-    fontSize: 26,
-    textAlign: 'center'
-  },
-  subtitle: {
-    color: gray,
-    fontSize: 16,
-    textAlign: 'center'
   },
 })
 

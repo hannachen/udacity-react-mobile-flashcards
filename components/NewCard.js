@@ -66,7 +66,8 @@ class NewCard extends Component {
         />
         <Button
           onPress={this.submitCard}
-          disabled={(question.length === 0 && answer.length === 0)}
+          disabled={(question.length === 0 || answer.length === 0)}
+          containerStyle={{borderWidth: 1}}
         >
           Create Card
         </Button>
