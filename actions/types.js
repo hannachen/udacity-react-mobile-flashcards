@@ -1,0 +1,15 @@
+export const GET_DECKS = 'GET_DECKS'
+export const GET_DECKS_ERROR = 'GET_DECKS_ERROR'
+export const RECEIVE_DECKS = 'RECEIVE_DECKS'
+
+export const GET_DECK = 'GET_DECK'
+export const GET_DECK_ERROR = 'GET_DECK_ERROR'
+export const RECEIVE_DECK = 'RECEIVE_DECK'
+
+export const SAVE_DECK = 'SAVE_DECK'
+export const SAVE_DECK_ERROR = 'SAVE_DECK_ERROR'
+export const SUBMITTED_DECK = 'SUBMITTED_DECK'
+
+export const REMOVE_DECK = 'REMOVE_DECK'
+export const REMOVE_DECK_ERROR = 'REMOVE_DECK_ERROR'
+export const DELETED_DECK = 'DELETED_DECK'
