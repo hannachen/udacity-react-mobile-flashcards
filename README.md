@@ -12,12 +12,17 @@ yarn >= v0.27 or npm >= v5.0
 ## Getting Started
 
 * Install and start the app
-    - `yarn` or `npm install`
-    - `yarn start` or `npm start`
+  - `yarn` or `npm install`
+  - `yarn start` or `npm start`
+    
+* Testing the app
+  - [Additional information here](#available-scripts)
+    
+## Platforms
+This app should work correctly in both Android and iOS.
 
 ## License
 readable is Copyright © 2017 Hanna Chen. It is free and may be redistributed under the terms specified in the [LICENSE](LICENSE.txt) file.
-
 
 ## Development Information
 
