@@ -68,7 +68,7 @@ class NewCard extends Component {
           onPress={this.submitCard}
           disabled={(question.length === 0 && answer.length === 0)}
         >
-          Submit
+          Create Card
         </Button>
       </KeyboardAvoidingView>
     )

@@ -57,7 +57,7 @@ class NewDeck extends Component {
           onPress={this.submitDeck}
           disabled={title.length === 0}
         >
-          Submit
+          Create Deck
         </Button>
       </KeyboardAvoidingView>
     )
