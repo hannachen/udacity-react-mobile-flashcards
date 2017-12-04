@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StatusBar } from 'react-native'
+import { View, Text, StatusBar, Platform } from 'react-native'
 import { TabNavigator, StackNavigator } from 'react-navigation'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Constants } from 'expo'
@@ -24,7 +24,7 @@ function UdaciStatusBar({ backgroundColor, ...props}) {
 }
 
 const Tabs = TabNavigator({
-  History: {
+  Decks: {
     screen: Decks,
     navigationOptions: {
       tabBarLabel: 'Decks',
@@ -43,10 +43,10 @@ const Tabs = TabNavigator({
     header: null
   },
   tabBarOptions: {
-    activeTintColor: purple,
+    activeTintColor: Platform.OS === 'ios' ? purple : white,
     style: {
       height: 56,
-      backgroundColor: white,
+      backgroundColor: Platform.OS === 'ios' ? white : purple,
       shadowColor: 'rgba(0, 0, 0, 0.24)',
       shadowOffset: {
         width: 0,

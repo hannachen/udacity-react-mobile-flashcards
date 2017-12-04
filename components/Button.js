@@ -6,8 +6,8 @@ export default function({ children, onPress, containerStyle = {}, textStyle = {}
   return(
     disabled
     ? (
-      <View style={[styles.container, { borderColor: gray }, containerStyle]}>
-        <Text style={[styles.reset, { color: gray }, textStyle]}>{children}</Text>
+      <View style={[styles.container, { borderWidth: 1, borderColor: gray }]}>
+        <Text style={[styles.reset, { color: gray }]}>{children}</Text>
       </View>
     )
     : (
@@ -22,7 +22,6 @@ export default function({ children, onPress, containerStyle = {}, textStyle = {}
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
     borderRadius: 5,
     padding: 15,
     paddingLeft: 25,

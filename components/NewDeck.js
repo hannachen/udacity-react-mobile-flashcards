@@ -46,7 +46,7 @@ class NewDeck extends Component {
           <Text style={styles.title}>What is the title of your new deck?</Text>
           <TextInput
             style={inputStyles}
-            returnKeyType='send'
+            returnKeyType='done'
             onChangeText={this.changeTitle}
             onSubmitEditing={this.submitDeck}
             placeholder='Deck Title'

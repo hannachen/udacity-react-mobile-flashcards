@@ -1,12 +1,22 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import Button from './Button'
 
-export default function({ correct, incorrect }) {
+export default function({ correct, incorrect, toHome }) {
   return(
     <View style={styles.container}>
       <Text style={styles.title}>Your score</Text>
       <Text style={styles.subtitle}>Correct: {correct}</Text>
       <Text style={styles.subtitle}>Incorrect: {incorrect}</Text>
+
+      <View>
+        <Button
+          onPress={toHome}
+          containerStyle={{ borderWidth: 1, marginTop: 50 }}
+        >
+          Back to Decks
+        </Button>
+      </View>
     </View>
   )
 }

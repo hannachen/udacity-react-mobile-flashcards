@@ -5,6 +5,7 @@ import { getDeck, removeDeck } from '../actions'
 import { AppLoading } from 'expo'
 import DeckItem from './DeckItem'
 import Button from './Button'
+import { purple, white } from '../utils/colors'
 
 class DeckDetail extends Component {
   state = {
@@ -56,13 +57,19 @@ class DeckDetail extends Component {
         <DeckItem title={deck.title} questions={deck.questions} />
 
         <View style={styles.buttonContainer}>
-          <Button onPress={this.addCard}>
+          <Button
+            onPress={this.addCard}
+            containerStyle={{ borderWidth: 1}}
+          >
             <Text>Add Card</Text>
           </Button>
 
           <Button
             onPress={this.startQuiz}
-            disabled={deck.questions.length <= 0}>
+            disabled={deck.questions.length === 0}
+            containerStyle={{ borderWidth: 1, backgroundColor: purple }}
+            textStyle={{ color: white }}
+          >
             Start Quiz
           </Button>
 

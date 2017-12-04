@@ -32,6 +32,9 @@ class Quiz extends Component {
       counter: this.state.counter + 1
     })
   }
+  toHome = () => {
+    this.props.navigation.navigate('Home')
+  }
   render() {
     const { deck } = this.props
     const { counter, showAnswer, correct, incorrect } = this.state
@@ -42,7 +45,7 @@ class Quiz extends Component {
         .then(setLocalNotification)
 
       return (
-        <Score correct={correct} incorrect={incorrect} />
+        <Score correct={correct} incorrect={incorrect} toHome={this.toHome} />
       )
     }
 

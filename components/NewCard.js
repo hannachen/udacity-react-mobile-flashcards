@@ -52,6 +52,7 @@ class NewCard extends Component {
           name={question}
           value={question}
           placeholder='Question'
+          returnKeyType='next'
           style={inputStyles}
           onChangeText={this.changeQuestion}
         />
@@ -59,6 +60,7 @@ class NewCard extends Component {
           name={answer}
           value={answer}
           placeholder='Answer'
+          returnKeyType='done'
           style={inputStyles}
           onChangeText={this.changeAnswer}
         />
