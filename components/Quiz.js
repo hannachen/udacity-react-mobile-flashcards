@@ -35,6 +35,14 @@ class Quiz extends Component {
   toHome = () => {
     this.props.navigation.navigate('Home')
   }
+  reset = () => {
+    this.setState({
+      counter: 1,
+      showAnswer: false,
+      correct: 0,
+      incorrect: 0,
+    })
+  }
   render() {
     const { deck } = this.props
     const { counter, showAnswer, correct, incorrect } = this.state
@@ -45,7 +53,12 @@ class Quiz extends Component {
         .then(setLocalNotification)
 
       return (
-        <Score correct={correct} incorrect={incorrect} toHome={this.toHome} />
+        <Score
+          correct={correct}
+          incorrect={incorrect}
+          restartQuiz={this.reset}
+          toHome={this.toHome}
+        />
       )
     }
 
@@ -61,7 +74,7 @@ class Quiz extends Component {
         </View>
 
         <TouchableOpacity onPress={this.toggle}>
-          <Text>{showAnswer ? 'Question' : 'Answer'}</Text>
+          <Text>Show {showAnswer ? 'Question' : 'Answer'}</Text>
         </TouchableOpacity>
 
         <View style={styles.center}>

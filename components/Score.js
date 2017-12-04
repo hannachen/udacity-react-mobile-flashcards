@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Button from './Button'
+import { purple, white } from '../utils/colors'
 
-export default function({ correct, incorrect, toHome }) {
+export default function({ correct, incorrect, restartQuiz, toHome }) {
   return(
     <View style={styles.container}>
       <Text style={styles.title}>Your score</Text>
@@ -11,10 +12,17 @@ export default function({ correct, incorrect, toHome }) {
 
       <View>
         <Button
-          onPress={toHome}
-          containerStyle={{ borderWidth: 1, marginTop: 50 }}
+          onPress={restartQuiz}
+          containerStyle={styles.solid}
+          textStyle={{color: white}}
         >
-          Back to Decks
+          Restart Quiz
+        </Button>
+        <Button
+          onPress={toHome}
+          containerStyle={{ borderWidth: 1, marginTop: 15 }}
+        >
+          Back to Deck
         </Button>
       </View>
     </View>
@@ -33,5 +41,10 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 18,
+  },
+  solid: {
+    borderWidth: 1,
+    backgroundColor: purple,
+    marginTop: 50,
   }
 })
