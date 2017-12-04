@@ -1,5 +1,5 @@
 import * as types from '../actions/types'
-import { getDecks, saveDeck, removeDeck } from '../utils/api'
+import { getDecks, getDeck, saveDeck, removeDeck } from '../utils/api'
 
 const dataService = store => next => action => {
   // Pass all actions through by default
@@ -21,7 +21,7 @@ const dataService = store => next => action => {
         })
       break
     case types.GET_DECK:
-      return getDecks(action.key)
+      return getDeck(action.key)
         .then(({deck}) => {
           next({
             type: types.RECEIVE_DECK,
